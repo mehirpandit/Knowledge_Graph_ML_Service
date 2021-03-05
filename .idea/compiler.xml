@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ML_KG_App" />
+        <module name="Knowledge_Graph_ML_Service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8" />
