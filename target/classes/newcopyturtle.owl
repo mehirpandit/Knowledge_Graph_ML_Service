@@ -1,0 +1,282 @@
+@prefix : <http://www.semanticweb.org/pandi/ontologies/2020/7/untitled-ontology-27#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix machine_learning_ontology: <http://www.semanticweb.org/pandi/ontologies/2020/7/machine_learning_ontology#> .
+@base <http://www.semanticweb.org/pandi/ontologies/2020/7/machine_learning_ontology> .
+
+<http://www.semanticweb.org/pandi/ontologies/2020/7/machine_learning_ontology> rdf:type owl:Ontology .
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/pandi/ontologies/2020/7/machine_learning_ontology#hasAccuracy
+machine_learning_ontology:hasAccuracy rdf:type owl:DatatypeProperty ;
+                                      rdfs:subPropertyOf owl:topDataProperty ;
+                                      rdfs:domain machine_learning_ontology:Machine_learning_model ;
+                                      rdfs:range xsd:integer ;
+                                      rdfs:comment "Accuracy specification" .
+
+
+###  http://www.semanticweb.org/pandi/ontologies/2020/7/machine_learning_ontology#hasInput
+machine_learning_ontology:hasInput rdf:type owl:DatatypeProperty ;
+                                   rdfs:subPropertyOf owl:topDataProperty ;
+                                   rdfs:domain machine_learning_ontology:Machine_learning_model ;
+                                   rdfs:range xsd:string ;
+                                   rdfs:comment "This specifies the input size given to the service." .
+
+
+###  http://www.semanticweb.org/pandi/ontologies/2020/7/machine_learning_ontology#hasModelDescription
+machine_learning_ontology:hasModelDescription rdf:type owl:DatatypeProperty ;
+                                              rdfs:subPropertyOf owl:topDataProperty ;
+                                              rdfs:domain machine_learning_ontology:Machine_learning_model ;
+                                              rdfs:range xsd:string ;
+                                              rdfs:comment "This will allow the ML service provides to present certain key info about the ML models. This can be type of model(random forest, SVM, LStm). Also provide details about its structure like number of layers." .
+
+
+###  http://www.semanticweb.org/pandi/ontologies/2020/7/machine_learning_ontology#hasOutput
+machine_learning_ontology:hasOutput rdf:type owl:DatatypeProperty ;
+                                    rdfs:subPropertyOf owl:topDataProperty ;
+                                    rdfs:domain machine_learning_ontology:Machine_learning_model ;
+                                    rdfs:range xsd:string ;
+                                    rdfs:comment "This specifies the output size from the service." .
+
+
+###  http://www.semanticweb.org/pandi/ontologies/2020/7/machine_learning_ontology#hasTaskDescription
+machine_learning_ontology:hasTaskDescription rdf:type owl:DatatypeProperty ;
+                                             rdfs:subPropertyOf owl:topDataProperty ;
+                                             rdfs:domain machine_learning_ontology:Machine_learning_model ;
+                                             rdfs:range xsd:string ;
+                                             rdfs:comment "This is the description of the ML task that the service is providing. Example is “vehicle detection in aerial image”." .
+
+
+###  http://www.semanticweb.org/pandi/ontologies/2020/7/machine_learning_ontology#hasTrainingSpec
+machine_learning_ontology:hasTrainingSpec rdf:type owl:DatatypeProperty ;
+                                          rdfs:subPropertyOf owl:topDataProperty ;
+                                          rdfs:domain machine_learning_ontology:Machine_learning_model ;
+                                          rdfs:range xsd:string ;
+                                          rdfs:comment "ML services can be offered in two modes: pretrained ML services and untrained ML services. In untrained the consumer has to train the model and pretrained is the opposite of it." .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/pandi/ontologies/2020/7/machine_learning_ontology#Classification_model
+machine_learning_ontology:Classification_model rdf:type owl:Class ;
+                                               rdfs:subClassOf machine_learning_ontology:Supervised_learning .
+
+
+###  http://www.semanticweb.org/pandi/ontologies/2020/7/machine_learning_ontology#Clustering
+machine_learning_ontology:Clustering rdf:type owl:Class ;
+                                     rdfs:subClassOf machine_learning_ontology:Unsupervised_learning ;
+                                     owl:disjointWith machine_learning_ontology:Dimensionality_reduction .
+
+
+###  http://www.semanticweb.org/pandi/ontologies/2020/7/machine_learning_ontology#Convolutional_Neural_Network
+machine_learning_ontology:Convolutional_Neural_Network rdf:type owl:Class ;
+                                                       rdfs:subClassOf machine_learning_ontology:Deep_learning_model .
+
+
+###  http://www.semanticweb.org/pandi/ontologies/2020/7/machine_learning_ontology#Decision_tree
+machine_learning_ontology:Decision_tree rdf:type owl:Class ;
+                                        rdfs:subClassOf machine_learning_ontology:Regression_and_Classification .
+
+
+###  http://www.semanticweb.org/pandi/ontologies/2020/7/machine_learning_ontology#Deep_learning_model
+machine_learning_ontology:Deep_learning_model rdf:type owl:Class ;
+                                              rdfs:subClassOf machine_learning_ontology:Machine_learning_model .
+
+
+###  http://www.semanticweb.org/pandi/ontologies/2020/7/machine_learning_ontology#Dimensionality_reduction
+machine_learning_ontology:Dimensionality_reduction rdf:type owl:Class ;
+                                                   rdfs:subClassOf machine_learning_ontology:Unsupervised_learning .
+
+
+###  http://www.semanticweb.org/pandi/ontologies/2020/7/machine_learning_ontology#Linear_regression
+machine_learning_ontology:Linear_regression rdf:type owl:Class ;
+                                            rdfs:subClassOf machine_learning_ontology:Regression_model .
+
+
+###  http://www.semanticweb.org/pandi/ontologies/2020/7/machine_learning_ontology#Logistic_regression
+machine_learning_ontology:Logistic_regression rdf:type owl:Class ;
+                                              rdfs:subClassOf machine_learning_ontology:Classification_model .
+
+
+###  http://www.semanticweb.org/pandi/ontologies/2020/7/machine_learning_ontology#Machine_learning_model
+machine_learning_ontology:Machine_learning_model rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/pandi/ontologies/2020/7/machine_learning_ontology#Naive_bayes
+machine_learning_ontology:Naive_bayes rdf:type owl:Class ;
+                                      rdfs:subClassOf machine_learning_ontology:Classification_model .
+
+
+###  http://www.semanticweb.org/pandi/ontologies/2020/7/machine_learning_ontology#Neural_network
+machine_learning_ontology:Neural_network rdf:type owl:Class ;
+                                         rdfs:subClassOf machine_learning_ontology:Regression_and_Classification .
+
+
+###  http://www.semanticweb.org/pandi/ontologies/2020/7/machine_learning_ontology#Random_forest
+machine_learning_ontology:Random_forest rdf:type owl:Class ;
+                                        rdfs:subClassOf machine_learning_ontology:Regression_and_Classification .
+
+
+###  http://www.semanticweb.org/pandi/ontologies/2020/7/machine_learning_ontology#Regression_and_Classification
+machine_learning_ontology:Regression_and_Classification rdf:type owl:Class ;
+                                                        rdfs:subClassOf machine_learning_ontology:Supervised_learning .
+
+
+###  http://www.semanticweb.org/pandi/ontologies/2020/7/machine_learning_ontology#Regression_model
+machine_learning_ontology:Regression_model rdf:type owl:Class ;
+                                           rdfs:subClassOf machine_learning_ontology:Supervised_learning .
+
+
+###  http://www.semanticweb.org/pandi/ontologies/2020/7/machine_learning_ontology#Reinforcement_learning
+machine_learning_ontology:Reinforcement_learning rdf:type owl:Class ;
+                                                 rdfs:subClassOf machine_learning_ontology:Machine_learning_model .
+
+
+###  http://www.semanticweb.org/pandi/ontologies/2020/7/machine_learning_ontology#Supervised_learning
+machine_learning_ontology:Supervised_learning rdf:type owl:Class ;
+                                              rdfs:subClassOf machine_learning_ontology:Machine_learning_model ;
+                                              owl:disjointWith machine_learning_ontology:Unsupervised_learning .
+
+
+###  http://www.semanticweb.org/pandi/ontologies/2020/7/machine_learning_ontology#Support_vector_machine
+machine_learning_ontology:Support_vector_machine rdf:type owl:Class ;
+                                                 rdfs:subClassOf machine_learning_ontology:Classification_model .
+
+
+###  http://www.semanticweb.org/pandi/ontologies/2020/7/machine_learning_ontology#Unsupervised_learning
+machine_learning_ontology:Unsupervised_learning rdf:type owl:Class ;
+                                                rdfs:subClassOf machine_learning_ontology:Machine_learning_model .
+
+
+###  http://www.semanticweb.org/pandi/ontologies/2020/7/machine_learning_ontology#Principal_Component_Analysis_(PCA)
+<http://www.semanticweb.org/pandi/ontologies/2020/7/machine_learning_ontology#Principal_Component_Analysis_(PCA)> rdf:type owl:Class ;
+                                                                                                                  rdfs:subClassOf machine_learning_ontology:Dimensionality_reduction .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/pandi/ontologies/2020/7/machine_learning_ontology#AlexNet
+machine_learning_ontology:AlexNet rdf:type owl:NamedIndividual ,
+                                           machine_learning_ontology:Convolutional_Neural_Network ;
+                                  machine_learning_ontology:hasAccuracy 84 ;
+                                  machine_learning_ontology:hasInput "227*227*3"^^xsd:string ;
+                                  machine_learning_ontology:hasModelDescription "It uses ReLU(Rectified Linear Unit) and AlexNet consists of 5 Convolutional Layers and 3 Fully Connected Layers."^^xsd:string ;
+                                  machine_learning_ontology:hasOutput "Classified images"^^xsd:string ;
+                                  machine_learning_ontology:hasTaskDescription "image classification task"^^xsd:string ;
+                                  machine_learning_ontology:hasTrainingSpec "It is a pretrained model."^^xsd:string .
+
+
+###  http://www.semanticweb.org/pandi/ontologies/2020/7/machine_learning_ontology#DenseNet
+machine_learning_ontology:DenseNet rdf:type owl:NamedIndividual ,
+                                            machine_learning_ontology:Convolutional_Neural_Network ;
+                                   machine_learning_ontology:hasAccuracy 95 ;
+                                   machine_learning_ontology:hasInput "The input image size is 224*224." .
+
+
+###  http://www.semanticweb.org/pandi/ontologies/2020/7/machine_learning_ontology#GoogLeNet
+machine_learning_ontology:GoogLeNet rdf:type owl:NamedIndividual ,
+                                             machine_learning_ontology:Convolutional_Neural_Network ;
+                                    machine_learning_ontology:hasAccuracy 93 ;
+                                    machine_learning_ontology:hasInput "The input image size is 224*224."^^xsd:string ;
+                                    machine_learning_ontology:hasModelDescription "It use ReLU. It has 21 convolutional layers and 1 fully connected layer."^^xsd:string ;
+                                    machine_learning_ontology:hasOutput "classified image" ;
+                                    machine_learning_ontology:hasTaskDescription "It is used for image classification task." ;
+                                    machine_learning_ontology:hasTrainingSpec "It is a pretrained model." .
+
+
+###  http://www.semanticweb.org/pandi/ontologies/2020/7/machine_learning_ontology#ResNet
+machine_learning_ontology:ResNet rdf:type owl:NamedIndividual ,
+                                          machine_learning_ontology:Convolutional_Neural_Network ;
+                                 machine_learning_ontology:hasAccuracy 96 ;
+                                 machine_learning_ontology:hasInput "The input image size is 224*224." ;
+                                 machine_learning_ontology:hasModelDescription "It has 50 convolution layers and 1 fully connected layer." ;
+                                 machine_learning_ontology:hasOutput "classified image." ;
+                                 machine_learning_ontology:hasTaskDescription "It is used for image classification task." ;
+                                 machine_learning_ontology:hasTrainingSpec "It is a pretrained model." .
+
+
+###  http://www.semanticweb.org/pandi/ontologies/2020/7/machine_learning_ontology#SqueezeNet
+machine_learning_ontology:SqueezeNet rdf:type owl:NamedIndividual ,
+                                              machine_learning_ontology:Convolutional_Neural_Network ;
+                                     machine_learning_ontology:hasAccuracy 80 ;
+                                     machine_learning_ontology:hasInput "The input image size is 227*227."^^xsd:string ;
+                                     machine_learning_ontology:hasModelDescription """It is 18 layers deep. ReLU is applied.SqueezeNet
+begins with a standalone convolution layer (conv1), followed by 8 Fire modules (fire2-9), ending
+with a final conv layer (conv10).Firemodule is of 2 layers each.""" ;
+                                     machine_learning_ontology:hasOutput "classified image." ;
+                                     machine_learning_ontology:hasTaskDescription "It is used for image classification task." ;
+                                     machine_learning_ontology:hasTrainingSpec "It is a pretrained model." .
+
+
+###  http://www.semanticweb.org/pandi/ontologies/2020/7/machine_learning_ontology#VGGNet
+machine_learning_ontology:VGGNet rdf:type owl:NamedIndividual ,
+                                          machine_learning_ontology:Convolutional_Neural_Network ;
+                                 machine_learning_ontology:hasAccuracy 92 ;
+                                 machine_learning_ontology:hasInput "The input image size is 224*224."^^xsd:string ;
+                                 machine_learning_ontology:hasModelDescription "It has 16 convolutional layers, 3 fully connected layers and final layer is softmax layer."^^xsd:string ;
+                                 machine_learning_ontology:hasOutput "Classified images"^^xsd:string ;
+                                 machine_learning_ontology:hasTaskDescription "It is used for image localization and image classification task."^^xsd:string ;
+                                 machine_learning_ontology:hasTrainingSpec "It is a pretrained model."^^xsd:string .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( machine_learning_ontology:Classification_model
+                machine_learning_ontology:Regression_and_Classification
+                machine_learning_ontology:Regression_model
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( machine_learning_ontology:Decision_tree
+                machine_learning_ontology:Neural_network
+                machine_learning_ontology:Random_forest
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( machine_learning_ontology:Logistic_regression
+                machine_learning_ontology:Naive_bayes
+                machine_learning_ontology:Support_vector_machine
+              )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( machine_learning_ontology:AlexNet
+                        machine_learning_ontology:DenseNet
+                        machine_learning_ontology:GoogLeNet
+                        machine_learning_ontology:ResNet
+                        machine_learning_ontology:SqueezeNet
+                        machine_learning_ontology:VGGNet
+                      )
+] .
+
+
+[ rdf:type owl:AllDisjointProperties ;
+  owl:members ( machine_learning_ontology:hasAccuracy
+                machine_learning_ontology:hasInput
+                machine_learning_ontology:hasModelDescription
+                machine_learning_ontology:hasOutput
+                machine_learning_ontology:hasTaskDescription
+                machine_learning_ontology:hasTrainingSpec
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
